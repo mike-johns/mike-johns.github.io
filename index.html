@@ -22,7 +22,51 @@
 
     <body>
         
-        <h1>This is updated test text.</h1>
+        <div class="container">
+            
+            <!-- A div to hold page header information -->
+            
+            <div class="text-center" id="header">
+                
+                <h1>This is updated test text.</h1>
+            
+            </div>
+            
+            <!-- A div to contain UI elements that add a new item, etc -->
+            
+            <div id="text-submit-container" class="center-block clearfix">
+                
+                <form id="text-submit-form" class="pull-left">
+                    
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control" id="new-text-field" placeholder="New Message">
+                        
+                    </div>
+                    
+                </form>
+                
+                <div id="submit-button-container" class="pull-right">
+                    
+                    <button id="submit-button" class="btn btn-default" type="submit">Update</button>
+                    
+                </div>
+                
+            </div>
+            
+            <!-- A div containing text that displays the user's most recent input -->
+            
+            <div>
+            
+                <p id="user-text-display"></p>
+        
+                <p><em>Next, I'll create some way to submit text, and then store it somewhere!</em></p>
+            
+            </div>
+        
+        </div> <!-- End of main container -->
+        
+        <!-- Links to scripts -->
         
         <!-- jQuery CDN link -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

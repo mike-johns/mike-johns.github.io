@@ -1,8 +1,39 @@
+/* Object Styles */
+
 h1 {
     font-family: Lato, sans-serif;
     font-weight: 700;
 }
 
+p {
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+}
+
+
+
+/* Class Styles */
+
 .is-blue {
     color: rgb(0, 0, 255);
+}
+
+
+
+
+/* ID Styles */
+
+#text-submit-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 10px 0px;
+}
+
+#text-submit-form {
+    width: 80%;
+    padding-right: 10px;
+}
+
+#submit-button-container {
+    width: 20%;
 }
