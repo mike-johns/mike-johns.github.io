@@ -21,13 +21,13 @@ var $recentMessage = $('#user-text-display');
 
 var $messageHistoryDisplay = $('#user-history-display');
 
-// Assign a variable to hold an Array of the user's submitted text strings.
+// Assign a variable to hold an Array of the user's submitted text strings
 
 var userTextArray = [];
 
-// Get text of newly edited form field and update a header with that text
+// Get text of newly edited form field and update related <p> elements with that text; as a function here so that it can be called on multiple events but doesn't have to be re-written eeach time.
 
-$('#submit-button').on('click', function() {
+function submitNewMessage() {
     var newText = $newTextField.val();
     if (newText) {
         $recentMessage.html(function() {
@@ -36,11 +36,22 @@ $('#submit-button').on('click', function() {
         var itemCount = userTextArray.push(newText);
         var newItemIndex = (itemCount - 1);
         $messageHistoryDisplay.html(function() {
-            return '<strong>Stored Messages: </strong>' + userTextArray;
+            return '<strong>Message History: </strong>' + userTextArray;
         });
     }
     $newTextField.val('');
+}
+
+
+// Call submitNewMessage() when the #submit-button is pressed
+
+$('#submit-button').on('click', function() {
+    submitNewMessage();
 });
 
-// Replicate above function, which appends user-submitted text to a selected <p> object, so that the text also updates when the form is submitted.
+// Call submitNewMessage() when the user hits return - i.e., the form is submitted
 
+$('#text-submit-form').on('submit', function(e) {
+    e.preventDefault();
+    submitNewMessage();
+});
