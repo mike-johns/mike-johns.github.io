@@ -4,5 +4,9 @@
 
 $('h1').on('click', function(e) {
     var $this = $(e.target);
-    $this.addClass('is-blue');
+    if ($this.is('.is-blue')) {
+        $this.removeClass('is-blue');
+    } else {
+        $this.addClass('is-blue');
+    }
 })
