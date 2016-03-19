@@ -1,17 +1,23 @@
 /* Object Styles */
 
-h1 {
+p,h1, h2, h3, h4, h5, h6, label {
     font-family: Lato, sans-serif;
     font-weight: 700;
 }
 
+label {
+    font-size: 13pt;
+}
+
 p {
-    font-family: Lato, sans-serif;
     font-weight: 400;
 }
 
 /* Class Styles */
 
+.constrain-width {
+    max-width: 800px;
+}
 
 /* ID Styles */
 

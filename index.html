@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CDN Links -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         
         <!-- My CSS Styles -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -22,7 +22,7 @@
 
     <body>
         
-        <div class="container"> <!-- A container div for the entire page, in case I re-add Bootstrap CSS later -->
+        <div class="container constrain-width"> <!-- A container div for the entire page, in case I re-add Bootstrap CSS later -->
             
             <!-- ------------------------------------------------------------------------------ -->
             <!-- The following elements define the test product, a guest check-in system        -->
@@ -30,44 +30,96 @@
             
             <!-- A div to contain the secondary header introducing the second test product -->
             
-            <div id="secondary-header">
+            <div class="row">
                 
-                <h1>Check-In</h1>
+                <div class="col-md-9">
+                
+                    <h1>Check-In System</h1>
+                
+                </div>
+                
+                <div class="col-md-3">
+                
+                    <p>Version 0.2</p>
+                
+                </div>
+                
+                <div class="col-md-6">
+                
+                    <h3 id="current-guest-display"><strong>Current Guests: </strong></h3>
+                
+                    <h3 id="available-display"><strong>Available: </strong></h3>
+                
+                </div>
+                
+                <div class="col-md-6">
+                
+                    <h3 id="guest-name-large"><strong>Guest Name</strong></h3>
+                
+                    <h3 id="guest-action-display"><strong>Action</strong></h3>
+                
+                </div>
             
             </div>
             
-            <!-- A div to contain UI elements that check a guest in or out -->
+            <!-- Two small forms that check a guest in or out -->
             
-            <div id="checkin-out-container">
+            <div class="row">
                 
-                <!-- A form for guest check-in... -->
+                <div class="col-md-12">
                 
-                <form id="guest-checkin-form">
+                    <form id="guest-checkin-form">
+
+                        <div class="form-group">
+
+                            <label for="exampleInputEmail1">New Guest</label>
+
+                            <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Guest Name">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Check In</button>
+
+                    </form>
                     
-                    <input type="text" id="guest-checkin-entry" placeholder="New Guest Name">
-                        
-                    <button class="" id="checkin-submit" type="submit">Check-In</button>
-                    
-                </form>
-                
-                <!-- And a form for guest check-out... -->
-                
-                <form id="guest-checkout-form">
-                    
-                    <input type="text" id="guest-checkout-entry" placeholder="Guest ID">
-                    
-                    <button class="btn" id="checkout-submit" type="submit">Check-Out</button>
-                    
-                </form>
+                </div>
                 
             </div>
+            
+            <div class="row">
+                
+                <div class="col-md-12">
+
+                    <form id="guest-checkout-form">
+
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">Leaving Guest</label>
+
+                            <input type="number" class="form-control" id="guest-checkout-entry" placeholder="Guest ID">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Check Out</button>
+
+                    </form>
+                    
+                </div>
+            
+            </div>
+            
+            
             
             <!-- A div to hold the check-in system's log messages -->
             
-            <div>
+            <div class="row">
                 
-                <p id="log-message"><strong>Log: </strong></p>
+                <div class="col-md-12">
                 
+                    <p id="log-message"><strong>Log: </strong></p>
+                
+                </div>
+                    
             </div>
             
             <!-- TODO: Add expanding table of current guests with ID and running time checked in -->
