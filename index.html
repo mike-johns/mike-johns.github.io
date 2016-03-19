@@ -16,7 +16,7 @@
         <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
         <!-- Site Title -->
-        <title>Mike Johns</title>
+        <title>Check-In System</title>
         
     </head>
 
@@ -72,7 +72,7 @@
 
                         <div class="form-group">
 
-                            <label for="exampleInputEmail1">New Guest</label>
+                            <label for="guest-checkin-entry">New Guest</label>
 
                             <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Guest Name">
 
@@ -94,9 +94,15 @@
 
                         <div class="form-group">
 
-                            <label for="exampleInputPassword1">Leaving Guest</label>
+                            <label for="guest-selection">Current Guests</label>
+                            
+                            <!-- This input corresponds to the deprecated checkOut() method in main.js -->
 
-                            <input type="number" class="form-control" id="guest-checkout-entry" placeholder="Guest ID">
+                            <!-- <input type="number" class="form-control" id="guest-checkout-entry" placeholder="Guest ID"> -->
+                            
+                            <select class="form-control" id="guest-selection">
+
+                            </select>
 
                         </div>
 
@@ -123,6 +129,8 @@
             </div>
             
             <!-- TODO: Add expanding table of current guests with ID and running time checked in -->
+            
+            <!-- This could also allow clicking on a table item to "check out" that guest after a confirm() message -->
         
         </div> <!-- End of main container -->
         

@@ -18,12 +18,14 @@ var $currentGuestDisplay = $('#current-guest-display');
 
 var $availableDisplay = $('#available-display');
 
+var $guestSelection = $('#guest-selection');
+
 var $log = $('#log-message');
 
 // Fill in the text or html content of a few of these elements selected above.
 
 $currentGuestDisplay.html(function() {
-    return '<strong>Current Guests: 0</strong>';
+    return '<strong>Current Guests: </strong>' + 0;
 });
 
 $availableDisplay.html(function() {
@@ -47,18 +49,21 @@ function checkIn(name) {
         if (availability > 0) {
             if (attendantList.length == undefined || attendantList.length == 0) {
                 var guestPosition = attendantList.push(name);
+                $guestSelection.append('<option>' + name + '</option>');
                 availability--;
                 updateAndLog(name + ' has been admitted as Guest #' + guestPosition + '. There are ' + availability + ' more spots available.');
             } else {
                 for (var i = 0; i < attendantList.length; i++) {
                     if (attendantList[i] == undefined) {
                         attendantList[i] = name;
+                        $guestSelection.append('<option>' + name + '</option>');
                         availability--;
                         updateAndLog(name + ' has been admitted as guest #' + (i + 1) + '. There are ' + availability + ' more spots available.');
                         return;
                     }
                 }
-                attendantList.push(name);
+                var guestPosition = attendantList.push(name);
+                $guestSelection.append('<option>' + name + '</option>');
                 availability--;
                 updateAndLog(name + ' has been admitted as guest #' + (attendantList.length) + '. There are ' + availability + ' more spots available.');
             }
@@ -69,6 +74,25 @@ function checkIn(name) {
         updateAndLog('Please enter a name.');
     }
 }
+
+function checkOut(guestName) {
+    if (guestName && (confirm('Confirm: Checking out ' + guestName))) {
+        for (var i = 0; i < attendantList.length; i++) {
+            if (guestName === attendantList[i]) {
+                attendantList[i] = undefined;
+                if (availability < capacity) {
+                    availability++;
+                }
+                $('option:contains(' + guestName +')').remove();
+                updateAndLog(guestName + ' has been checked out.');
+            }
+        }
+    }
+}
+
+// This version of the function is deprecated. The new version uses the guest's name rather than ID.
+
+/*
 
 function checkOut(guestNumber) {
     //var guestNumber = prompt('Enter Guest ID To Check Out:');
@@ -97,6 +121,9 @@ function checkOut(guestNumber) {
     }
 }
 
+*/
+
+
 // Create event listeners to call a checkIn() or checkOut() function when the appropriate form is submitted
 
 $('#guest-checkin-form').on('submit', function(e) {
@@ -112,8 +139,8 @@ $('#guest-checkin-form').on('submit', function(e) {
 });
 
 $('#guest-checkout-form').on('submit', function(e) {
-   e.preventDefault();
-    checkOut($guestCheckoutEntry.val());
+    e.preventDefault();
+    checkOut($guestSelection.val());
     $guestCheckoutEntry.val('');
     $currentGuestDisplay.html(function() {
         return '<strong>Current Guests: </strong>' + (capacity - availability);
