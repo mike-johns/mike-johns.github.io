@@ -10,8 +10,6 @@ p {
     font-weight: 400;
 }
 
-
-
 /* Class Styles */
 
 .is-blue {
@@ -19,21 +17,5 @@ p {
 }
 
 
-
-
 /* ID Styles */
 
-#text-submit-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 10px 0px;
-}
-
-#text-submit-form {
-    width: 80%;
-    padding-right: 10px;
-}
-
-#submit-button-container {
-    width: 20%;
-}

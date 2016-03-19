@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CDN Links -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
         
         <!-- My CSS Styles -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -22,11 +22,15 @@
 
     <body>
         
-        <div class="container">
+        <div class="container"> <!-- A container div for the entire page, in case I re-add Bootstrap CSS later -->
+            
+            <!-- ------------------------------------------------------------------------------ -->
+            <!-- The following elements define the first test product, a message display        -->
+            <!-- ------------------------------------------------------------------------------ -->
             
             <!-- A div to hold page header information -->
             
-            <div class="text-center" id="header">
+            <div>
                 
                 <h1>Messages</h1>
             
@@ -34,23 +38,15 @@
             
             <!-- A div to contain UI elements that add a new item, etc -->
             
-            <div id="text-submit-container" class="center-block clearfix">
+            <div id="text-submit-container" class="">
                 
-                <form id="text-submit-form" class="pull-left">
+                <form id="text-submit-form" class="">
                     
-                    <div class="form-group">
-                        
-                        <input type="text" class="form-control" id="new-text-field" placeholder="New Message">
-                        
-                    </div>
+                    <input type="text" class="" id="new-text-field" placeholder="New Message">
+                
+                    <button id="submit-button" class="" type="submit">Send</button>
                     
                 </form>
-                
-                <div id="submit-button-container" class="pull-right">
-                    
-                    <button id="submit-button" class="btn btn-default" type="submit">Send</button>
-                    
-                </div>
                 
             </div>
             
@@ -63,6 +59,54 @@
                 <p id="user-history-display"><strong>Message History: </strong></p>
             
             </div>
+            
+            <!-- ------------------------------------------------------------------------------ -->
+            <!-- The following elements define the second test product, a guest check-in system -->
+            <!-- ------------------------------------------------------------------------------ -->
+            
+            <!-- A div to contain the secondary header introducing the second test product -->
+            
+            <div id="secondary-header">
+                
+                <h1>Check-In</h1>
+            
+            </div>
+            
+            <!-- A div to contain UI elements that check a guest in or out -->
+            
+            <div id="checkin-out-container">
+                
+                <!-- A form for guest check-in... -->
+                
+                <form id="guest-checkin-form">
+                    
+                    <input type="text" id="guest-checkin-entry" placeholder="New Guest Name">
+                        
+                    <button class="" id="checkin-submit" type="submit">Check-In</button>
+                    
+                </form>
+                
+                <!-- And a form for guest check-out... -->
+                
+                <form id="guest-checkout-form">
+                    
+                    <input type="text" id="guest-checkout-entry" placeholder="Guest ID">
+                    
+                    <button class="btn" id="checkout-submit" type="submit">Check-Out</button>
+                    
+                </form>
+                
+            </div>
+            
+            <!-- A div to hold the check-in system's log messages -->
+            
+            <div>
+                
+                <p id="log-message"><strong>Log: </strong></p>
+                
+            </div>
+            
+            <!-- TODO: Add expanding table of current guests with ID and running time checked in -->
         
         </div> <!-- End of main container -->
         
