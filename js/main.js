@@ -90,40 +90,6 @@ function checkOut(guestName) {
     }
 }
 
-// This version of the function is deprecated. The new version uses the guest's name rather than ID.
-
-/*
-
-function checkOut(guestNumber) {
-    //var guestNumber = prompt('Enter Guest ID To Check Out:');
-    if (guestNumber) {
-        if (guestNumber <= attendantList.length) {
-            var guestIndex = guestNumber - 1;
-            var guestName = attendantList[guestIndex];
-            if (guestName == undefined) {
-                updateAndLog('There is no guest currently using that ID'); 
-                return;
-            }
-            if (confirm('Confirm that the guest\'s name is: ' + guestName)) {
-                attendantList[guestIndex] = undefined;    
-            } else {
-                return;
-            }
-            if (availability < capacity) {
-                availability++;    
-            }
-            updateAndLog(guestName + ' has been checked out. There are now ' + availability + ' spots available.');   
-        } else {
-            updateAndLog('Please double-check your entry. (Entry out of range)');    
-        }
-    } else {
-        updateAndLog('Please double-check your entry. (No valid entry)');
-    }
-}
-
-*/
-
-
 // Create event listeners to call a checkIn() or checkOut() function when the appropriate form is submitted
 
 $('#guest-checkin-form').on('submit', function(e) {
