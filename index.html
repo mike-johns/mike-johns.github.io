@@ -30,7 +30,7 @@
             
             <!-- A div to contain the secondary header introducing the second test product -->
             
-            <div class="row">
+            <div class="row focus-box">
                 
                 <div class="col-md-9">
                 
@@ -40,7 +40,7 @@
                 
                 <div class="col-md-3">
                 
-                    <p>Version 0.2</p>
+                    <p class="text-right">Version 0.2</p>
                 
                 </div>
                 
@@ -52,11 +52,9 @@
                 
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-md-6" id="focus-update-container">
                 
-                    <h3 id="guest-name-large"><strong>Guest Name</strong></h3>
-                
-                    <h3 id="guest-action-display"><strong>Action</strong></h3>
+                    <h3 class="text-right" id="focus-update-large"></h3>
                 
                 </div>
             
@@ -64,7 +62,7 @@
             
             <!-- Two small forms that check a guest in or out -->
             
-            <div class="row">
+            <div class="row focus-box">
                 
                 <div class="col-md-12">
                 
@@ -72,13 +70,13 @@
 
                         <div class="form-group">
 
-                            <label for="guest-checkin-entry">New Guest</label>
+                            <label for="guest-checkin-entry">Add New Guest</label>
 
                             <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Guest Name">
 
                         </div>
 
-                        <button type="submit" class="btn btn-default">Check In</button>
+                        <button type="submit" class="btn btn-success">Check In</button>
 
                     </form>
                     
@@ -86,7 +84,7 @@
                 
             </div>
             
-            <div class="row">
+            <div class="row focus-box">
                 
                 <div class="col-md-12">
 
@@ -102,7 +100,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-default">Check Out</button>
+                        <button type="submit" class="btn btn-danger">Check Out</button>
 
                     </form>
                     
@@ -112,17 +110,19 @@
             
             <!-- A div to hold the check-in system's log messages -->
             
-            <div class="row">
+            <div class="row focus-box">
                 
-                <div class="col-md-12">
+                <div class="col-md-12" id="activity-log-container">
+                    
+                    <p class="like-label"><strong>Activity Log</strong></p>
                 
-                    <p id="log-message"><strong>Log: </strong></p>
+                    <p id="log-message"></p>
                 
                 </div>
                     
             </div>
             
-            <!-- TODO: Add expanding table of current guests with ID and running time checked in -->
+            <!-- TODO: Add expanding table of current guests with ID and running time checked in - see Bootstrap documentation -->
             
             <!-- This could also allow clicking on a table item to "check out" that guest after a confirm() message -->
         

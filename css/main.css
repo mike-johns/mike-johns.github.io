@@ -1,5 +1,9 @@
 /* Object Styles */
 
+body {
+    background-color: rgb(37, 116, 169);
+}
+
 p,h1, h2, h3, h4, h5, h6, label {
     font-family: Lato, sans-serif;
     font-weight: 700;
@@ -19,5 +23,24 @@ p {
     max-width: 800px;
 }
 
+.like-label {
+    font-size: 13pt;
+}
+
+.focus-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 /* ID Styles */
 
+#activity-log-container {
+    min-height: 64px;
+}
+
+#focus-update-container {
+    max-height: 102px;
+}
