@@ -1,12 +1,21 @@
-////////////////////////////////////////////////////////////////////////////////
-// In this section, I'm building an unrelated check-in system
-////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 1: Initial Setup
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 // Create some setup variables
 
 var capacity = 20;
+
 var availability = capacity;
+
 var attendantList = [];
+
+
 
 // Store jQuery selections in variables to use later
 
@@ -24,6 +33,10 @@ var $focusUpdate = $('#focus-update-large');
 
 var $log = $('#log-message');
 
+var $showMenuButton = $('#show-top-menu');
+
+
+
 // Fill in the text or html content of a few of these elements selected above.
 
 $currentGuestDisplay.html(function() {
@@ -34,19 +47,41 @@ $availableDisplay.html(function() {
     return '<strong>Available: </strong>' + capacity;
 });
 
-// Declare a function to update the #log-message text element and log the message to the JS console.
 
-// TODO: fix this animation in the case that multiple messages get updated quickly. Also, why does the first one not fade in?
+
+// Prepare for animation used later
+
+$focusUpdate.hide();
+
+$('#lower-log-master').hide();
+
+$('#top-settings').hide();
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 2: JavaScript Functions
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Update the #log-message text element and log the message to the JS console.
+
+// TODO: fix this animation in the case that multiple messages get updated quickly. 
+
+// TODO: first time this message is displayed doesn't fade in
 
 function updateAndLog(message) {
     $log.text(message).fadeIn(500).delay(3000).fadeOut(1000);
     console.log(message);
 }
 
-// Create a couple functions that will add or subtract an attendant from the list, and update the availability
 
-function checkIn(name) {
-    //var name = prompt('Enter Guest Name To Check In:');
+
+// Check a guest into the event, update global variables and display properties
+
+function checkIn(name) { 
     if (name) {
         if (availability > 0) {
             if (attendantList.length == undefined || attendantList.length == 0) {
@@ -80,6 +115,10 @@ function checkIn(name) {
     }
 }
 
+
+
+// Check a guest out of the event, update global variables and display properties 
+
 function checkOut(guestName) {
     if (guestName && (confirm('Confirm: Checking out ' + guestName))) {
         for (var i = 0; i < attendantList.length; i++) {
@@ -96,7 +135,15 @@ function checkOut(guestName) {
     }
 }
 
-// Create event listeners to call a checkIn() or checkOut() function when the appropriate form is submitted
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 3: jQuery Event Listeners
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Call checkIn() when the Add New Guest form is submitted
 
 $('#guest-checkin-form').on('submit', function(e) {
     e.preventDefault();
@@ -110,6 +157,10 @@ $('#guest-checkin-form').on('submit', function(e) {
     });
 });
 
+
+
+// Call checkOut() a name is selected to be removed from Current Guests
+
 $('#guest-checkout-form').on('submit', function(e) {
     e.preventDefault();
     checkOut($guestSelection.val());
@@ -122,12 +173,41 @@ $('#guest-checkout-form').on('submit', function(e) {
     });
 });
 
-// Animations and functions for top-level activity display
 
-$focusUpdate.hide();
+
+// Hide the topmost menu display when the 'Hide' button is pressed
+
+$('#top-menu-hide').on('click', function(e) {
+    $('#top-settings').slideUp();
+    $showMenuButton.removeAttr('disabled');
+});
+
+// Show the topmost menu display when the 'Menu' button is pressed
+
+$showMenuButton.on('click', function() {
+    console.log()
+    if ($(this).text() == 'Menu') {
+        $('#top-settings').slideDown();
+        $showMenuButton.text('Hide');
+    } else {
+        $('#top-settings').slideUp();
+        $showMenuButton.text('Menu');
+    }
+    
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 4: Other
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Animation to show a message in the main info display section
 
 function focusUpdate(gName, gMessage) {
     $focusUpdate.text('');
     $focusUpdate.append(gName +'<small> ' + gMessage + '</small>');
     $focusUpdate.fadeIn(500).delay(2000).fadeOut(750);
 }
+
+
