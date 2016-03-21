@@ -86,7 +86,7 @@ function updateAndLog(message) {
 // Create a new Guest List table entry for the guest; used in functions below
 
 function addRow(name, id) {
-    var $newRow = $('<tr><th scope="row">' + id + '</td><td>' + name + '</td><td>9:00 PM</td><td><button class="btn btn-info btn-email">Email</button> <button class="btn btn-danger btn-checkout">Check Out</button></td></tr>');
+    var $newRow = $('<tr><th scope="row">' + id + '</td><td>' + name + '</td><td>9:00 PM</td></tr>');
     $('#guest-list-table-body').append($newRow);
 }
 
