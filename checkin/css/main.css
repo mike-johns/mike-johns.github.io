@@ -20,11 +20,20 @@ p {
 /* Class Styles */
 
 .constrain-width {
-    max-width: 650px;
+    max-width: 750px;
 }
 
 .like-label {
     font-size: 13pt;
+}
+
+.like-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.std-col-width {
+    min-width: 245px;
 }
 
 .focus-box {

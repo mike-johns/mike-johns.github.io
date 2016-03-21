@@ -35,6 +35,8 @@ var $log = $('#log-message');
 
 var $showMenuButton = $('#show-top-menu');
 
+var $tableCheckOutButtons = $("button.btn-checkout");
+
 
 
 // Fill in the text or html content of a few of these elements selected above.
@@ -56,6 +58,8 @@ $focusUpdate.hide();
 $('#lower-log-master').hide();
 
 $('#top-settings').hide();
+
+$('#prev-guest-checkout').hide();
 
 
 
@@ -79,6 +83,15 @@ function updateAndLog(message) {
 
 
 
+// Create a new Guest List table entry for the guest; used in functions below
+
+function addRow(name, id) {
+    var $newRow = $('<tr><th scope="row">' + id + '</td><td>' + name + '</td><td>9:00 PM</td><td><button class="btn btn-info btn-email">Email</button> <button class="btn btn-danger btn-checkout">Check Out</button></td></tr>');
+    $('#guest-list-table-body').append($newRow);
+}
+
+
+
 // Check a guest into the event, update global variables and display properties
 
 function checkIn(name) { 
@@ -87,24 +100,24 @@ function checkIn(name) {
             if (attendantList.length == undefined || attendantList.length == 0) {
                 var guestPosition = attendantList.push(name);
                 $guestSelection.append('<option>' + name + '</option>');
+                addRow(name, guestPosition);
                 availability--;
-                updateAndLog(name + ' has been admitted as Guest #' + guestPosition + '. There are ' + availability + ' more spots available.');
                 focusUpdate(name, ' has been checked in');
             } else {
                 for (var i = 0; i < attendantList.length; i++) {
                     if (attendantList[i] == undefined) {
                         attendantList[i] = name;
                         $guestSelection.append('<option>' + name + '</option>');
+                        addRow(name, (i + 1));
                         availability--;
-                        updateAndLog(name + ' has been admitted as guest #' + (i + 1) + '. There are ' + availability + ' more spots available.');
                         focusUpdate(name, ' has been checked in');
                         return;
                     }
                 }
                 var guestPosition = attendantList.push(name);
                 $guestSelection.append('<option>' + name + '</option>');
+                addRow(name, guestPosition);
                 availability--;
-                updateAndLog(name + ' has been admitted as guest #' + (attendantList.length) + '. There are ' + availability + ' more spots available.');
                 focusUpdate(name, ' has been checked in');
             }
         } else {
@@ -176,12 +189,12 @@ $('#guest-checkout-form').on('submit', function(e) {
 
 
 // Hide the topmost menu display when the 'Hide' button is pressed
-/*
+
 $('#top-menu-hide').on('click', function(e) {
     $('#top-settings').slideUp();
     $showMenuButton.removeAttr('disabled');
 });
-*/
+
 
 
 // Show the topmost menu display when the 'Menu' button is pressed
@@ -196,6 +209,24 @@ $showMenuButton.on('click', function() {
         $showMenuButton.text('Menu');
     }
 });
+
+
+
+// Show an alert when am 'Email' button in the Guest List is pressed
+
+$tableCheckOutButtons.on('click', function(e) {
+    var $theButton = $(this);
+    var $theRow = $theButton.parent().parent();
+    var targetGuestName = $theButton.parent().prev().prev().text();
+    if (targetGuestName !== undefined) {
+        checkOut(targetGuestName);    
+    } else {
+        alert('No guest is checked into that spot.')
+    }
+    $theRow.remove();
+});
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Section 4: Other

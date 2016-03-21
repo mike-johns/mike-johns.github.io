@@ -21,181 +21,110 @@
     </head>
 
     <body>
-        
         <div class="container constrain-width"> <!-- A container div for the entire page -->
-            
             <div id="top-settings" class="row focus-box"> <!-- Menu settings that appear from top of window -->
-            
                 <div class="col-md-12">
-                
                     <p>This is where the menu items will go.</p>
-                    
                     <button id="top-menu-hide" class="btn btn-default pull-right">Hide</button>
-                
                 </div>
-            
             </div>
-            
             <div class="row focus-box"> <!-- Title and main info display, also holds focus update display -->
-                
-                <div class="col-md-12">
-                
+                <div class="col-xs-9">
                     <h1>Check-In System <small>0.5</small></h1>
-                    
-                    <button class="btn btn-default" id="show-top-menu">Menu</button>
-                
                 </div>
-                
+                <div class="col-xs-3 like-header">
+                    <button class="btn btn-default pull-right" id="show-top-menu">Menu</button>
+                </div>
                 <div class="col-md-6">
-                
                     <p class="like-label" id="current-guest-display"><strong>Current Guests: </strong></p>
-                
                     <p class="like-label" id="available-display"><strong>Available: </strong></p>
-                
                 </div>
-                
                 <div class="col-md-6" id="focus-update-container">
-                
                     <h3 class="text-right" id="focus-update-large"></h3>
-                
                 </div>
-            
             </div>
-            
             <div class="row focus-box"> <!-- Contains form to add a new guest's name -->
-                
                 <div class="col-md-12">
-                    
                     <h3>New Guest</h3>
-                
-                    <form class="form-inline" id="guest-checkin-form">
-
+                    <form class="form-horizontal" id="guest-checkin-form">
                         <div class="form-group">
-
-                            <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Name">
-                            
-                            <input type="email" class="form-control" id="guest-checkin-email" placeholder="Email">
-
+                            <label class="col-sm-2 control-label" for="guest-checkin-entry">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Jane Doe">
+                            </div>
                         </div>
-
-                        <button type="submit" class="btn btn-success">Check In</button>
-
+                        <!--
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="guest-checkin-email">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="guest-checkin-email" placeholder="name@domain.com">
+                            </div>
+                        </div>
+                        -->
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Check In</button>            
+                            </div>
+                        </div>
                     </form>
-                    
                 </div>
-                
             </div>
-            
-            <div class="row focus-box"> <!-- Contains form to select and remove an existing guest -->
-                
+            <div class="row focus-box" id="prev-guest-checkout"> <!-- Contains form to select and remove an existing guest -->
                 <div class="col-md-12">
-                    
                     <h3>Current Guests</h3>
-
                     <form id="guest-checkout-form">
-
                         <div class="form-group">
-                            
-                            <select class="form-control" id="guest-selection">
-
-                            </select>
-
+                            <select class="form-control" id="guest-selection"></select>
                         </div>
-
                         <button type="submit" class="btn btn-danger">Check Out</button>
-
                     </form>
-                    
                 </div>
-            
             </div>
-            
-            <div class="row focus-box hidden-xs" id="lower-log-master"> <!-- Displays the system's log messages -->
-                
-                <div class="col-md-12" id="activity-log-container">
-                    
-                    <p class="like-label"><strong>Activity Log</strong></p>
-                
-                    <p id="log-message"></p>
-                
-                </div>
-                    
-            </div>
-            
-            <!-- TODO: Add expanding table of current guests with ID and running time checked in - see Bootstrap documentation. This could also allow clicking on a table item to "check out" that guest after a confirm() message -->
-            
-            <div class="row focus-box" id="guestlist-container">
-            
+            <div class="row focus-box" id="guestlist-container"> <!-- Contains Guest List Table -->
                 <div class="col-md-12">
-                    
                     <h3>Guest List</h3>
-                
                     <table class="table table-hover">
-                        
                         <thead>
-                            
                             <tr>
-                        
                                 <th>#</th>
-
-                                <th>Guest Name</th>
-
-                                <th>Check-In Time</th>
-                                
+                                <th class="std-col-width">Name</th>
+                                <th>Time</th>
                                 <th>Action</th>
-                        
                             </tr>
-                        
                         </thead>
-                        
                         <tbody id="guest-list-table-body">
-                        
+                            <!--
                             <tr>
-                                
                                 <th scope="row">1</th>
-
                                 <td>Mike Johns</td>
-
-                                <td>8:30 PM</td>
-                                
-                                <td><button class="btn">Display Email</button><button class="btn">Check Out</button></td>
-
+                                <td>60 minutes</td>
+                                <td><button class="btn btn-info btn-email">Email</button> <button class="btn btn-danger btn-checkout">Check Out</button></td>
                             </tr>
-
                             <tr>
-                                
                                 <th scope="row">2</th>
-
                                 <td>Aaron Padilla</td>
-
-                                <td>8:45 PM</td>
-                                
-                                <td><button class="btn btn-danger">Check Out</button></td>
-
+                                <td>45 minutes</td>
+                                <td><button class="btn btn-info btn-email">Email</button> <button class="btn btn-danger btn-checkout">Check Out</button></td>
                             </tr>
-
                             <tr>
-                                
                                 <th scope="row">3</th>
-
                                 <td>Corbin Phillips</td>
-
-                                <td>9:17 PM</td>
-                                
-                                <td><button class="btn btn-danger">Check Out</button></td>
-
+                                <td>35 Minutes</td>
+                                <td><button class="btn btn-info btn-email">Email</button> <button class="btn btn-danger btn-checkout">Check Out</button></td>
                             </tr>
-                        
+                            -->
                         </tbody>
-                    
                     </table>
-                
                 </div>
-            
             </div>
-        
+            <div class="row focus-box hidden-xs" id="lower-log-master"> <!-- Displays the system's log messages -->
+                <div class="col-md-12" id="activity-log-container">
+                    <p class="like-label"><strong>Activity Log</strong></p>
+                    <p id="log-message"></p>
+                </div>  
+            </div>
         </div> <!-- End of main container -->
-        
+    
         <!-- Links to scripts -->
         
         <!-- jQuery CDN link -->
@@ -203,7 +132,6 @@
         
         <!-- My JS data -->
         <script src="js/main.js"></script>
-    
     </body>
     
 </html>
