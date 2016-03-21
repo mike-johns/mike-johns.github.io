@@ -120,7 +120,7 @@ function checkIn(name) {
 // Check a guest out of the event, update global variables and display properties 
 
 function checkOut(guestName) {
-    if (guestName && (confirm('Confirm: Checking out ' + guestName))) {
+    if (guestName) {
         for (var i = 0; i < attendantList.length; i++) {
             if (guestName === attendantList[i]) {
                 attendantList[i] = undefined;
@@ -176,11 +176,13 @@ $('#guest-checkout-form').on('submit', function(e) {
 
 
 // Hide the topmost menu display when the 'Hide' button is pressed
-
+/*
 $('#top-menu-hide').on('click', function(e) {
     $('#top-settings').slideUp();
     $showMenuButton.removeAttr('disabled');
 });
+*/
+
 
 // Show the topmost menu display when the 'Menu' button is pressed
 
@@ -193,7 +195,6 @@ $showMenuButton.on('click', function() {
         $('#top-settings').slideUp();
         $showMenuButton.text('Menu');
     }
-    
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

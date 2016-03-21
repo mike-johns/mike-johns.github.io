@@ -38,15 +38,11 @@
             
             <div class="row focus-box"> <!-- Title and main info display, also holds focus update display -->
                 
-                <div class="col-md-9">
+                <div class="col-md-12">
                 
                     <h1>Check-In System <small>0.5</small></h1>
-                
-                </div>
-                
-                <div class="col-md-3">
-                
-                    <button class="btn btn-default pull-right" id="show-top-menu">Menu</button>
+                    
+                    <button class="btn btn-default" id="show-top-menu">Menu</button>
                 
                 </div>
                 
@@ -69,14 +65,16 @@
             <div class="row focus-box"> <!-- Contains form to add a new guest's name -->
                 
                 <div class="col-md-12">
+                    
+                    <h3>New Guest</h3>
                 
-                    <form id="guest-checkin-form">
+                    <form class="form-inline" id="guest-checkin-form">
 
                         <div class="form-group">
 
-                            <label for="guest-checkin-entry">Add New Guest</label>
-
-                            <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Guest Name">
+                            <input type="text" class="form-control" id="guest-checkin-entry" placeholder="Name">
+                            
+                            <input type="email" class="form-control" id="guest-checkin-email" placeholder="Email">
 
                         </div>
 
@@ -91,12 +89,12 @@
             <div class="row focus-box"> <!-- Contains form to select and remove an existing guest -->
                 
                 <div class="col-md-12">
+                    
+                    <h3>Current Guests</h3>
 
                     <form id="guest-checkout-form">
 
                         <div class="form-group">
-
-                            <label for="guest-selection">Current Guests</label>
                             
                             <select class="form-control" id="guest-selection">
 
@@ -125,6 +123,76 @@
             </div>
             
             <!-- TODO: Add expanding table of current guests with ID and running time checked in - see Bootstrap documentation. This could also allow clicking on a table item to "check out" that guest after a confirm() message -->
+            
+            <div class="row focus-box" id="guestlist-container">
+            
+                <div class="col-md-12">
+                    
+                    <h3>Guest List</h3>
+                
+                    <table class="table table-hover">
+                        
+                        <thead>
+                            
+                            <tr>
+                        
+                                <th>#</th>
+
+                                <th>Guest Name</th>
+
+                                <th>Check-In Time</th>
+                                
+                                <th>Action</th>
+                        
+                            </tr>
+                        
+                        </thead>
+                        
+                        <tbody id="guest-list-table-body">
+                        
+                            <tr>
+                                
+                                <th scope="row">1</th>
+
+                                <td>Mike Johns</td>
+
+                                <td>8:30 PM</td>
+                                
+                                <td><button class="btn">Display Email</button><button class="btn">Check Out</button></td>
+
+                            </tr>
+
+                            <tr>
+                                
+                                <th scope="row">2</th>
+
+                                <td>Aaron Padilla</td>
+
+                                <td>8:45 PM</td>
+                                
+                                <td><button class="btn btn-danger">Check Out</button></td>
+
+                            </tr>
+
+                            <tr>
+                                
+                                <th scope="row">3</th>
+
+                                <td>Corbin Phillips</td>
+
+                                <td>9:17 PM</td>
+                                
+                                <td><button class="btn btn-danger">Check Out</button></td>
+
+                            </tr>
+                        
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
         
         </div> <!-- End of main container -->
         
