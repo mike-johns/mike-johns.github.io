@@ -1,0 +1,53 @@
+body {
+    background: #3498db;
+}
+
+h1 {
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+p {
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.is-bold {
+    font-weight: 700;
+}
+
+.done {
+    text-decoration: line-through;
+    /* font-weight: 700; */
+}
+
+#button-row {
+    margin: auto;
+}
+
+#new-item-add-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 10px 0px;
+}
+
+#new-item-form {
+    width: 100%;
+}
+
+#add-button-container {
+    width: 20%;
+    padding-left: 10px;
+}
+
+#main-list {
+    max-width: 400px;
+    margin: auto;
+}
+
+#footer-row {
+    padding-top: 30px;
+}
