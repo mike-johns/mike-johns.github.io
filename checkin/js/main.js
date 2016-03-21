@@ -166,7 +166,7 @@ $('#guest-checkin-form').on('submit', function(e) {
         return '<strong>Current Guests: </strong>' + (capacity - availability);
     });
     $availableDisplay.html(function() {
-       return '<strong>Available: </strong>' + availability;
+        return '<strong>Available: </strong>' + availability;
     });
 });
 
@@ -182,7 +182,7 @@ $('#guest-checkout-form').on('submit', function(e) {
         return '<strong>Current Guests: </strong>' + (capacity - availability);
     });
     $availableDisplay.html(function() {
-       return '<strong>Available: </strong>' + availability;
+        return '<strong>Available: </strong>' + availability;
     });
 });
 

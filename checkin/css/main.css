@@ -33,7 +33,7 @@ p {
 }
 
 .std-col-width {
-    min-width: 245px;
+    /* min-width: 245px; */
 }
 
 .focus-box {
